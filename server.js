@@ -3,6 +3,8 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
+const port = process.env.PORT || 3030;
+
 app.use(bodyParser.json());
 
 function gameInit() {
@@ -95,6 +97,6 @@ async function pushEvents(id,events) {
     }
   });
 
-  app.listen(8000, () => {
-    console.log('server has started');
+  app.listen(port, () => {
+    console.log('server has started on port: ' + port);
   });
