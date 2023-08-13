@@ -1,11 +1,18 @@
-var express = require('express');
-var bodyParser = require('body-parser');
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require("cors");
+const corsOptions ={
+   origin:'*', 
+   credentials:true,            //access-control-allow-credentials:true
+   optionSuccessStatus:200,
+}
 
 var app = express();
 
 const port = process.env.PORT || 3030;
 
 app.use(bodyParser.json());
+app.use(cors(corsOptions));
 
 function gameInit() {
     const gameState = {};
