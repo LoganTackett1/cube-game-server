@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require("cors");
 const corsOptions ={
    origin:'*', 
-   credentials:true,            //access-control-allow-credentials:true
+   credentials:true,       
    optionSuccessStatus:200,
 }
 
@@ -11,8 +11,8 @@ var app = express();
 
 const port = process.env.PORT || 3030;
 
-app.use(bodyParser.json());
 app.use(cors(corsOptions));
+app.use(bodyParser.json());
 
 function gameInit() {
     const gameState = {};
